@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Shuttle P55U 購物頁面</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="pic/shuttle shopping logo.png" alt="Shuttle Logo">
+    </div>
+    <nav class="nav">
+      <a href="#">產品</a>
+      <a href="#">銷售據點</a>
+      <a href="#">關於我們</a>
+      <a href="#"><img src="pic/user.png" alt="帳號" class="icon"></a>
+      <a href="#"><img src="pic/cart.png" alt="購物車" class="icon2"></a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="product-preview">
+    <div class="product-img">
+      <div class="main-image">
+        <img id="mainImg" src="pic/0p.jpg" alt="Shuttle P55U">
+        <div class="image-nav">
+          <button class="nav-btn prev" onclick="changeImage(-1)">❮</button>
+          <button class="nav-btn next" onclick="changeImage(1)">❯</button>
+        </div>
+      </div>
+      <div class="thumbnail-container">
+        <div class="thumbnails">
+          <img class="thumbnail active" src="pic/0p.jpg" alt="正面" onclick="setMainImage(0)">
+          <img class="thumbnail" src="pic/1p.jpg" alt="側面" onclick="setMainImage(1)">
+          <img class="thumbnail" src="pic/2p.jpg" alt="背面" onclick="setMainImage(2)">
+          <img class="thumbnail" src="pic/3p.jpg" alt="連接埠" onclick="setMainImage(3)">
+          <img class="thumbnail" src="pic/4p.jpg" alt="螢幕" onclick="setMainImage(4)">
+          <img class="thumbnail" src="pic/5p.jpg" alt="角度" onclick="setMainImage(5)">
+          <img class="thumbnail" src="pic/6p.jpg" alt="細節" onclick="setMainImage(6)">
+          <img class="thumbnail" src="pic/7p.jpg" alt="包裝" onclick="setMainImage(7)">
+          <img class="thumbnail" src="pic/8p.jpg" alt="包裝" onclick="setMainImage(8)">
+          <img class="thumbnail" src="pic/9p.jpg" alt="包裝" onclick="setMainImage(9)">
+          <img class="thumbnail" src="pic/a10.png" alt="包裝" onclick="setMainImage(10)">
+        </div>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="brand-info">
+        <span class="brand">Shuttle 輔信</span>
+        <span class="model-code">型號: P55U 系列</span>
+      </div>
+      
+      <h1>Shuttle P55U 全功能一體機 | All in One</h1>
+      <p class="product-subtitle">15.6吋 FHD 觸控螢幕 | Intel 第12/13代處理器 | IP54防護 | 24/7穩定運行</p>
+      
+      <div class="rating-section">
+        <div class="stars">★★★★☆</div>
+        <span class="rating-text">4.5 (50 則評價)</span>
+        <span class="sold-count">| 已售出 128+ 台</span>
+      </div>
+      
+      <div class="badges">
+        <span class="badge hot">熱銷</span>
+        <span class="badge new">新品</span>
+        <span class="badge warranty">3年保固</span>
+      </div>
+      
+      <div class="variant-selector">
+        <h3>選擇配置:</h3>
+        <div class="variants">
+          <label class="variant-option">
+            <input type="radio" name="variant" value="p55u" checked>
+            <span class="variant-info">
+              <strong>P55U 入門版</strong>
+              <small>Celeron 7305 | 8GB DDR5 | 256GB SSD</small>
+            </span>
+            <span class="variant-price">NT$ 24,900</span>
+          </label>
+          <label class="variant-option">
+            <input type="radio" name="variant" value="p55u3">
+            <span class="variant-info">
+              <strong>P55U3 中階版</strong>
+              <small>Core i3-1315U | 16GB DDR5 | 512GB SSD</small>
+            </span>
+            <span class="variant-price">NT$ 29,900</span>
+          </label>
+          <label class="variant-option">
+            <input type="radio" name="variant" value="p55u5">
+            <span class="variant-info">
+              <strong>P55U5 高效版</strong>
+              <small>Core i5-1335U | 32GB DDR5 | 1TB SSD</small>
+            </span>
+            <span class="variant-price">NT$ 39,900</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="price-section">
+        <div class="current-price">
+          <span class="price-label">特價:</span>
+          <span class="price" id="currentPrice">NT$ 24,900</span>
+          <span class="original-price">NT$ 27,900</span>
+        </div>
+        <div class="discount-info">
+          <span class="discount">省 NT$ 3,000</span>
+          <span class="discount-end">限時優惠至 2024/2/29</span>
+        </div>
+      </div>
+      
+      <div class="shipping-info">
+        <div class="shipping-item">
+          <span class="icon">🚚</span>
+          <span>全台免運費（滿 NT$ 1,000）</span>
+        </div>
+        <div class="shipping-item">
+          <span class="icon">📍</span>
+          <span>7-11 超商取貨付款</span>
+        </div>
+        <div class="shipping-item">
+          <span class="icon">⚙️</span>
+          <span>全台安裝服務可選</span>
+        </div>
+      </div>
+      
+      <div class="quantity-section">
+        <label>數量:</label>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="changeQuantity(-1)">-</button>
+          <input type="number" id="quantity" value="1" min="1" max="10">
+          <button class="qty-btn" onclick="changeQuantity(1)">+</button>
+        </div>
+        <span class="stock-info">庫存: 15 台</span>
+      </div>
+      
+      <div class="buttons">
+        <button class="buy-btn">立即購買</button>
+        <button class="cart-btn">加入購物車</button>
+        <button class="fav-btn">收藏 ♥</button>
+      </div>
+      
+      <div class="trust-badges">
+        <div class="trust-item">
+          <span class="icon">🔒</span>
+          <span>安全付款</span>
+        </div>
+        <div class="trust-item">
+          <span class="icon">🛡️</span>
+          <span>原廠保固</span>
+        </div>
+        <div class="trust-item">
+          <span class="icon">🚚</span>
+          <span>快速出貨</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Section -->
+  <section class="tabs">
+    <div class="tab-buttons">
+      <button class="tab active" data-tab="features">產品特色</button>
+      <button class="tab" data-tab="specs">商品規格</button>
+      <button class="tab" data-tab="reviews">用戶評價 (50)</button>
+      <button class="tab" data-tab="return">退換貨須知</button>
+    </div>
+
+    <div class="tab-content active" id="features">
+        <h2>📌重點一次整理</h2>
+            <ul class="feature-list">
+                <li>💻 15.6 吋 FHD 多點觸控螢幕，支援三螢幕輸出 + HDMI 4K</li>
+                <li>⚡ 三款效能可選：Celeron 入門 / i3 中階 / i5 高效能 (Iris Xe 顯示)</li>
+                <li> DDR5-5200 記憶體，最高 64GB，數據處理更快</li>
+                <li>無風扇靜音設計 + 🛡️ IP54 防護，全天候 24/7 穩定運行</li>
+                <li>🔌 6×USB + 2×COM + 🌐 Gigabit LAN，廣泛周邊整合</li>
+                <li>🚀 M.2 Gen4 SSD 擴充 + 📶 Wi-Fi / 藍牙 / 5G 模組，高速彈性</li>
+                <li>🎥 內建攝影機、🎤 麥克風、🔊 雙喇叭，完美支援遠距會議</li>
+                <li> VESA 安裝 / 📏 可調支架，適應各種商業空間</li>
+                <li>🔒 安全性提升：Kensington 鎖、防盜 BIOS、看門狗自動復原</li>
+                <li>🖥️ 作業系統自由選擇：Windows 11 或 🐧 Linux</li>
+            </ul>
+           <div class="video-preview" onclick="playVideo()">
+             <img src="https://img.youtube.com/vi/B5HFzK8AkpQ/maxresdefault.jpg" alt="Shuttle P55U 產品介紹影片">
+             <div class="play-button">
+               <svg width="68" height="48" viewBox="0 0 68 48">
+                 <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                 <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+               </svg>
+             </div>
+           </div>
+           <div id="video-iframe" class="video-container" style="display: none;">
+             <iframe src="" title="Shuttle P55U 產品介紹影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+           </div>
+           
+           <!-- Performance Cards Section -->
+           <div class="performance-section">
+             <h2 class="section-title">靈活效能選擇 | 由你決定</h2>
+             <p class="section-subtitle">從三種 P55U 型號中選擇，以符合您的業務需求：</p>
+             
+             <div class="performance-cards">
+               <!-- P55U Entry Level -->
+               <div class="performance-card">
+                 <div class="card-header">
+                   <h3>P55U</h3>
+                   <span class="card-badge entry">入門級效能</span>
+                 </div>
+                 <div class="processor-info">
+                   <div class="intel-badge-placeholder">
+                     <!-- Intel 標章位置 -->
+                     <img src="pic/Celeron 7305.jpg" alt="Intel®" class="intel-logo">
+                   </div>
+                   <h4>Intel® 第 12 代 Alder Lake-U</h4>
+                   <p class="processor-model">Celeron 7305 處理器</p>
+                 </div>
+                 <div class="card-features">
+                   <p>適合基本商業運作和高性價比解決方案</p>
+                   <ul>
+                     <li>基本日常作業</li>
+                     <li>經濟實用選擇</li>
+                     <li>穩定可靠效能</li>
+                   </ul>
+                 </div>
+               </div>
+               
+               <!-- P55U3 Mid-range -->
+               <div class="performance-card featured">
+                 <div class="card-header">
+                   <h3>P55U3</h3>
+                   <span class="card-badge mid">中階效能</span>
+                   <span class="popular-badge">熱門選擇</span>
+                 </div>
+                 <div class="processor-info">
+                   <div class="intel-badge-placeholder">
+                     <!-- Intel 標章位置 -->
+                     <img src="pic/Core™ i3-1315U.jpg" alt="Intel®" class="intel-logo">
+                   </div>
+                   <h4>Intel® Raptor Lake</h4>
+                   <p class="processor-model">Core™ i3-1315U (15W TDP)</p>
+                 </div>
+                 <div class="card-features">
+                   <p>理想用於日常商業任務和多工處理</p>
+                   <ul>
+                     <li>多任務處理能力</li>
+                     <li>平衡效能與功耗</li>
+                     <li>商業應用理想選擇</li>
+                   </ul>
+                 </div>
+               </div>
+               
+               <!-- P55U5 High Performance -->
+               <div class="performance-card">
+                 <div class="card-header">
+                   <h3>P55U5</h3>
+                   <span class="card-badge high">高效能強者</span>
+                 </div>
+                 <div class="processor-info">
+                   <div class="intel-badge-placeholder">
+                     <!-- Intel 標章位置 -->
+                     <img src="pic/Core™ i5-1335U.jpg" alt="Intel®" class="intel-logo">
+                   </div>
+                   <h4>Intel® Raptor Lake</h4>
+                   <p class="processor-model">Core™ i5-1335U (15W TDP)</p>
+                   <div class="performance-highlight">
+                     <span class="cores">高達10核心和12執行緒</span>
+                     <span class="graphics">Intel® Iris® Xe 顯示卡</span>
+                   </div>
+                 </div>
+                 <div class="card-features">
+                   <p>適合要求嚴苛的應用</p>
+                   <ul>
+                     <li>高效能運算處理</li>
+                     <li>增強的視覺效能</li>
+                     <li>專業級應用支援</li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+             
+             <!-- Memory Section -->
+             <div class="memory-section">
+               <div class="memory-highlight">
+                 <h3>支援雙通道 DDR5-5200 記憶體 (最高 64GB)</h3>
+                 <div class="memory-benefits">
+                   <div class="benefit-item">
+                     <span class="icon">⚡</span>
+                     <span>高頻寬實現更快的數據處理</span>
+                   </div>
+                   <div class="benefit-item">
+                     <span class="icon">🔋</span>
+                     <span>低功耗提高能源效率</span>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             
+             <!-- Additional Images Section -->
+             <div class="additional-images">
+               <h3 class="images-title">產品詳細展示</h3>
+               <div class="images-grid">
+                 <img src="pic/a1.png" alt="產品特色圖片1" class="feature-image">
+                 <img src="pic/a2.png" alt="產品特色圖片2" class="feature-image">
+                 <img src="pic/a3.png" alt="產品特色圖片3" class="feature-image">
+                 <img src="pic/a4.png" alt="產品特色圖片4" class="feature-image">
+                 <img src="pic/a5.png" alt="產品特色圖片5" class="feature-image">
+                 <img src="pic/a6.png" alt="產品特色圖片6" class="feature-image">
+                 <img src="pic/a7.png" alt="產品特色圖片7" class="feature-image">
+                 <img src="pic/a8.png" alt="產品特色圖片8" class="feature-image">
+                 <img src="pic/a9.png" alt="產品特色圖片9" class="feature-image">
+                 <img src="pic/a10.png" alt="產品特色圖片10" class="feature-image">
+               </div>
+             </div>
+           </div>
+    </div>
+
+    <div class="tab-content" id="specs">
+      <h2>商品規格</h2>
+      <table class="specs-table">
+        <tr>
+          <td class="spec-label">品牌名稱</td>
+          <td class="spec-value">Shuttle 輔信</td>
+        </tr>
+        <tr>
+          <td class="spec-label">品牌系列名稱</td>
+          <td class="spec-value">P 系列 All-in-One</td>
+        </tr>
+        <tr>
+          <td class="spec-label">型號</td>
+          <td class="spec-value">P55U / P55U3 / P55U5</td>
+        </tr>
+        <tr>
+          <td class="spec-label">作業系統</td>
+          <td class="spec-value">Windows 11 (64-bit) / Linux (64-bit)</td>
+        </tr>
+        <tr>
+          <td class="spec-label">處理器</td>
+          <td class="spec-value">Intel 第 12/13 代系列：<br>• P55U：Celeron 7305<br>• P55U3：Core i3-1315U (6核心, 15W TDP)<br>• P55U5：Core i5-1335U (10核心12緒, 15W TDP, Iris Xe 顯示)</td>
+        </tr>
+        <tr>
+          <td class="spec-label">記憶體</td>
+          <td class="spec-value">雙通道 DDR5-5200，最高 64GB</td>
+        </tr>
+        <tr>
+          <td class="spec-label">SSD 容量</td>
+          <td class="spec-value">2× M.2 2280 (M-Key)，支援 SATA / PCIe Gen4 x4 SSD</td>
+        </tr>
+        <tr>
+          <td class="spec-label">顯示卡</td>
+          <td class="spec-value">內建 Intel UHD / Iris Xe (隨 CPU 規格)</td>
+        </tr>
+        <tr>
+          <td class="spec-label">螢幕尺寸 (解析度)</td>
+          <td class="spec-value">15.6 吋 FHD 1920x1080 多點觸控螢幕</td>
+        </tr>
+        <tr>
+          <td class="spec-label">多螢幕輸出</td>
+          <td class="spec-value">支援三螢幕獨立輸出：主螢幕 + HDMI (4K@60Hz) + VGA</td>
+        </tr>
+        <tr>
+          <td class="spec-label">重量</td>
+          <td class="spec-value">約 3.5 公斤（含支架）</td>
+        </tr>
+        <tr>
+          <td class="spec-label">尺寸</td>
+          <td class="spec-value">399 x 238 x 39 mm（不含支架）</td>
+        </tr>
+        <tr>
+          <td class="spec-label">工作溫度</td>
+          <td class="spec-value">0°C – 40°C，24/7 運行</td>
+        </tr>
+        <tr>
+          <td class="spec-label">連接埠</td>
+          <td class="spec-value">6× USB 3.2 (Gen1/Gen2)、2× RS232 COM、1× HDMI、1× VGA、1× LAN、音源輸出/輸入</td>
+        </tr>
+        <tr>
+          <td class="spec-label">網路</td>
+          <td class="spec-value">Intel Gigabit LAN、有線乙太網路<br>選配 Wi-Fi 5 + Bluetooth 5.0 模組<br>支援 5G WWN04 模組</td>
+        </tr>
+        <tr>
+          <td class="spec-label">攝影機</td>
+          <td class="spec-value">200 萬畫素 HD 網路攝影機</td>
+        </tr>
+        <tr>
+          <td class="spec-label">音效</td>
+          <td class="spec-value">內建雙立體聲喇叭 + 麥克風 + 3.5mm 耳機孔</td>
+        </tr>
+        <tr>
+          <td class="spec-label">顏色</td>
+          <td class="spec-value">黑色</td>
+        </tr>
+        <tr>
+          <td class="spec-label">觸控螢幕</td>
+          <td class="spec-value">支援多點觸控</td>
+        </tr>
+        <tr>
+          <td class="spec-label">安裝方式</td>
+          <td class="spec-value">支援 VESA 100x100mm、可調整支架</td>
+        </tr>
+        <tr>
+          <td class="spec-label">防護</td>
+          <td class="spec-value">IP54 防塵防濺前面板、無風扇靜音設計</td>
+        </tr>
+        <tr>
+          <td class="spec-label">安全設計</td>
+          <td class="spec-value">Kensington 鎖、BIOS 防護、看門狗自動復原</td>
+        </tr>
+        <tr>
+          <td class="spec-label">保固期</td>
+          <td class="spec-value">依原廠保固 (通常 3 年)</td>
+        </tr>
+        <tr>
+          <td class="spec-label">其他</td>
+          <td class="spec-value">適用於零售 POS、公共資訊站、教育、工業應用</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="tab-content" id="reviews">
+      <div class="reviews-summary">
+        <div class="rating-overview">
+          <span class="rating-score">4.5</span>
+          <div class="stars">★★★★☆</div>
+          <span class="rating-count">基於 50 則評價</span>
+        </div>
+      </div>
+      
+      <div class="reviews-list">
+        <div class="review-item">
+          <div class="reviewer-info">
+            <img src="https://images.unsplash.com/photo-1756758006047-efc2f2b7d493?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0M3x8fGVufDB8fHx8fA%3D%3D" alt="用戶頭像" class="avatar">
+            <div class="reviewer-details">
+              <h4>王阿明</h4>
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">2024年1月15日</span>
+            </div>
+          </div>
+          <p class="review-text">這台一體機真的很棒！觸控螢幕反應靈敏，處理速度快，很適合辦公室使用。無風扇設計讓工作環境非常安靜，強烈推薦！</p>
+        </div>
+
+        <div class="review-item">
+          <div class="reviewer-info">
+            <img src="https://images.unsplash.com/photo-1756838197413-07f174def66c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4M3x8fGVufDB8fHx8fA%3D%3D" alt="用戶頭像" class="avatar">
+            <div class="reviewer-details">
+              <h4>Lisa Conna</h4>
+              <div class="review-stars">★★★★☆</div>
+              <span class="review-date">2024年1月10日</span>
+            </div>
+          </div>
+          <p class="review-text">整體表現不錯，螢幕清晰度很好，連接埠也很豐富。唯一小缺點是價格稍高，但考慮到品質還是值得的。</p>
+        </div>
+
+        <div class="review-item">
+          <div class="reviewer-info">
+            <img src="https://images.unsplash.com/photo-1579983926774-399a9cb765c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFsZCUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="用戶頭像" class="avatar">
+            <div class="reviewer-details">
+              <h4>江西小王子</h4>
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">2024年1月8日</span>
+            </div>
+          </div>
+          <p class="review-text">用了一個月，非常滿意！IP54防護等級讓我放心在工廠環境使用，24/7運行也很穩定，是工業應用的好選擇。</p>
+        </div>
+
+        <div class="review-item">
+          <div class="reviewer-info">
+            <img src="https://images.unsplash.com/photo-1557409518-691ebcd96038?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGphcGFufGVufDB8fDB8fHww" alt="用戶頭像" class="avatar">
+            <div class="reviewer-details">
+              <h4>婷小姐</h4>
+              <div class="review-stars">★★★★☆</div>
+              <span class="review-date">2024年1月5日</span>
+            </div>
+          </div>
+          <p class="review-text">設計簡潔美觀，觸控功能很實用。多螢幕輸出對我的工作幫助很大，可以同時處理多個任務，效率提升不少。</p>
+        </div>
+
+        <div class="review-item">
+          <div class="reviewer-info">
+            <img src="https://images.unsplash.com/photo-1601823984263-b87b59798b70?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D" alt="用戶頭像" class="avatar">
+            <div class="reviewer-details">
+              <h4>Koanna</h4>
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">2024年1月3日</span>
+            </div>
+          </div>
+          <p class="review-text">安裝簡單，VESA支架很方便。內建攝影機和麥克風讓視訊會議品質很好，是遠距辦公的完美解決方案！</p>
+        </div>
+
+        <div class="review-item">
+          <div class="reviewer-info">
+            <img src="https://images.unsplash.com/photo-1755311903890-c0aed5dc2825?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1NXx8fGVufDB8fHx8fA%3D%3D" alt="用戶頭像" class="avatar">
+            <div class="reviewer-details">
+              <h4>Petter</h4>
+              <div class="review-stars">★★★★☆</div>
+              <span class="review-date">2023年12月28日</span>
+            </div>
+          </div>
+          <p class="review-text">DDR5記憶體讓系統運行很順暢，M.2 SSD擴充也很方便。整體來說是一台性價比不錯的商用電腦。</p>
+        </div>
+      </div>
+      
+      <div class="more-reviews">
+        <button class="more-reviews-btn">查看更多評論</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="return">
+      <h2>退換貨須知</h2>
+      <p>親愛的顧客，感謝您選購 Shuttle P55U。本商城致力於提供完善的售後服務，請您於購買前詳閱以下退換貨須知：</p>
+
+      <h3>一、適用範圍</h3>
+      <ul>
+        <li>本退換貨政策僅適用於本商城購買之全新品。</li>
+        <li>商品需符合本商城退換貨標準，方能辦理。</li>
+      </ul>
+
+      <h3>二、七日鑑賞期</h3>
+      <ul>
+        <li>根據《消費者保護法》，您享有 商品到貨次日起七日內之鑑賞期（含例假日）。</li>
+        <li>鑑賞期並非試用期，若商品經拆封使用、安裝軟體或造成刮傷、髒污，恕無法退貨。</li>
+      </ul>
+
+      <h3>三、退貨條件</h3>
+      <p>以下情況可接受退貨：</p>
+      <ul>
+        <li>收到商品時即有瑕疵、破損或短缺。</li>
+        <li>與訂單不符之錯誤商品。</li>
+        <li>商品經檢測確認屬於非人為因素之故障。</li>
+      </ul>
+      <p>退貨時請確保：</p>
+      <ul>
+        <li>商品本體、配件、包裝、說明書、保證書及贈品均齊全完整。</li>
+        <li>外箱及內包裝保持乾淨，無任何書寫或破損。</li>
+      </ul>
+
+      <h3>四、換貨說明</h3>
+      <ul>
+        <li>若收到之商品有瑕疵或不良，請於七日內申請換貨。</li>
+        <li>換貨僅限相同商品與型號，若缺貨則可協助辦理退貨退款。</li>
+      </ul>
+
+      <h3>五、無法退換貨情形</h3>
+      <ul>
+        <li>超過七日鑑賞期。</li>
+        <li>商品經拆封使用或安裝（例如已安裝 Windows、Linux 或客製化軟體）。</li>
+        <li>非商品本身瑕疵導致之損壞（如人為摔落、進水、受潮、錯誤安裝）。</li>
+        <li>配件、包裝、說明書或贈品遺失不全。</li>
+        <li>發票遺失或未隨退貨商品一併寄回。</li>
+      </ul>
+
+      <h3>六、退換貨流程</h3>
+      <ol>
+        <li>請先聯繫本商城客服中心，提出退換貨申請並提供訂單編號、問題描述及商品照片。</li>
+        <li>經客服確認符合退換貨條件後，安排物流到府收件。</li>
+        <li>收回商品檢測無誤後，將於 7–10 個工作日內 辦理退款或換貨。</li>
+      </ol>
+
+      <h3>七、退款方式</h3>
+      <ul>
+        <li><strong>信用卡付款：</strong>退款金額將退回至原刷卡帳戶。</li>
+        <li><strong>ATM / 轉帳付款：</strong>需提供正確帳戶資訊，退款將於 7–10 個工作日內入帳。</li>
+        <li><strong>第三方支付（Line Pay、街口等）：</strong>依支付平台規則辦理退款。</li>
+      </ul>
+
+      <h3>八、客服聯繫方式</h3>
+      <p>📞 客服專線：0800-XXX-XXX</p>
+      <p>📧 客服信箱：support@shuttle.com</p>
+      <p>🕒 服務時間：週一至週五 09:00–18:00（國定假日除外）</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Ipikeq22 版權所有，僅供shuttle P55U 購物頁面設計參考用</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
